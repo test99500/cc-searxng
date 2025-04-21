@@ -1,5 +1,5 @@
 import { WorkerEntrypoint } from 'cloudflare:workers';
-import type { EnvVars, HonoVariables } from './types.mjs';
+import type { EnvVars, HonoVariables } from '~/types.mjs';
 
 export { ContainerSidecar } from '~do/index.mjs';
 
