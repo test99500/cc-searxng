@@ -1,5 +1,6 @@
 import { WorkerEntrypoint } from 'cloudflare:workers';
 import type { EnvVars, HonoVariables } from '~/types.mjs';
+import { loadBalance } from '~do/containerHelpers.mjs';
 
 export { ContainerSidecar } from '~do/index.mjs';
 
@@ -82,13 +83,31 @@ export default class extends WorkerEntrypoint<EnvVars> {
 		app.use('*', (c, next) => import('hono/timing').then(({ timing }) => timing()(c, next)));
 		app.use('*', (c, next) => Promise.all([import('hono/combine'), import('hono/logger')]).then(([{ except }, { logger }]) => except(() => c.env.NODE_ENV !== 'development', logger())(c, next)));
 
-		app.get('*', (c) => {
-			return c.json({
-				req: Object.fromEntries(c.req.raw.headers.entries()),
-				raw: Object.fromEntries(request.headers.entries()),
-				var: c.var,
-			});
-		});
+		app.all('*', (c) =>
+			Promise.all([
+				// Proxy the actual request
+				loadBalance(c.env.CONTAINER_SIDECAR, 20).fetch(c.req.raw),
+				import('hono/timing'),
+			]).then(([response, { setMetric }]) => {
+				// Get the build in Server-Timing header from the response
+				const serverTiming = this.serverTiming(response.headers.get('Server-Timing') ?? undefined);
+				for (const [key, value] of Object.entries(serverTiming)) {
+					if (value !== null) {
+						setMetric(c, key, value);
+					}
+				}
+
+				// Get the cf container's Server-Timing header from the response
+				const containerServerTiming = this.serverTiming(response.headers.get('Server-Timing-CC') ?? undefined);
+				for (const [key, value] of Object.entries(containerServerTiming)) {
+					if (value !== null) {
+						setMetric(c, key, value);
+					}
+				}
+
+				return response;
+			}),
+		);
 
 		return app.fetch(request, this.env, this.ctx);
 	}
