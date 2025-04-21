@@ -1,0 +1,24 @@
+{
+	"type": "module",
+	"description": "Batteries included Cloudflare containers SearXNG",
+	"scripts": {
+		"fmt": "prettier --check .",
+		"fmt:fix": "prettier --write ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/demosjarco/cc-searxng.git"
+	},
+	"author": "demosjarco",
+	"license": "MIT",
+	"private": true,
+	"bugs": {
+		"url": "https://github.com/demosjarco/cc-searxng/issues"
+	},
+	"homepage": "https://github.com/demosjarco/cc-searxng#readme",
+	"prettier": "@demosjarco/prettier-config",
+	"devDependencies": {
+		"@demosjarco/prettier-config": "^1.0.2",
+		"prettier": "^3.5.3"
+	}
+}
