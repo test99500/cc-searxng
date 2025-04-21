@@ -20,6 +20,7 @@
 	"homepage": "https://github.com/demosjarco/cc-searxng#readme",
 	"prettier": "@demosjarco/prettier-config",
 	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20250421.0",
 		"@demosjarco/prettier-config": "^1.0.2",
 		"@eslint/js": "^9.25.0",
 		"@microsoft/eslint-formatter-sarif": "^3.1.0",
