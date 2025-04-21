@@ -1,3 +1,3 @@
 # cc-searxng
 
-Batteries included Cloudflare containers SearXNG
+Batteries included SearXNG on Cloudflare containers
