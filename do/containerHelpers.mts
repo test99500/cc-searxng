@@ -35,8 +35,8 @@ export async function startAndWaitForPort(container: Container, portToAwait: num
 	throw new Error(`could not check container healthiness after ${maxTries} tries`);
 }
 
-export async function proxyFetch(container: Container, request: Request, portNumber: number) {
-	return await container.getTcpPort(portNumber).fetch(request.url.replace('https://', 'http://'), request.clone());
+export function proxyFetch(container: Container, request: Request, portNumber: number) {
+	return container.getTcpPort(portNumber).fetch(request.url.replace('https://', 'http://'), request.clone());
 }
 
 export function loadBalance(containerBinding: DurableObjectNamespace, count: number) {
