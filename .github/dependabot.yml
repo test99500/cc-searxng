@@ -69,5 +69,6 @@ updates:
           - '@demosjarco/prettier-config'
           - 'eslint'
           - 'eslint-plugin-*'
+          - '@microsoft/eslint-formatter-sarif'
           - '@eslint/*'
           - 'typescript-eslint'
