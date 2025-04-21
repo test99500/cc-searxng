@@ -1,3 +1,5 @@
+import type { DurableObject } from 'cloudflare:workers';
+
 export async function startAndWaitForPort(container: Container, portToAwait: number, maxTries = 10) {
 	const port = container.getTcpPort(portToAwait);
 	// promise to make sure the container does not exit
@@ -39,7 +41,7 @@ export function proxyFetch(container: Container, request: Request, portNumber: n
 	return container.getTcpPort(portNumber).fetch(request.url.replace('https://', 'http://'), request.clone());
 }
 
-export function loadBalance(containerBinding: DurableObjectNamespace, count: number) {
+export function loadBalance<DO extends DurableObject>(containerBinding: DurableObjectNamespace<DO>, count: number) {
 	const randomID = Math.floor(Math.random() * count);
 	const id = containerBinding.idFromName('lb-' + randomID);
 	return containerBinding.get(id);
