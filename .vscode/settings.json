@@ -1,0 +1,14 @@
+{
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit",
+		"source.organizeImports": "always"
+	},
+	"typescript.preferences.importModuleSpecifier": "relative",
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	"github-actions.workflows.pinned.workflows": [],
+	"github-actions.workflows.pinned.refresh.enabled": true,
+	"yaml.schemas": {
+		"https://json.schemastore.org/dependabot-2.0.json": "${workspaceFolder}/.github/dependabot.yml"
+	}
+}
