@@ -1,3 +1,36 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json"
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "searxng",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-01-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"workers_dev": false,
+	"preview_urls": false,
+	"minify": true,
+	"upload_source_maps": true,
+	"observability": { "enabled": true },
+	"limits": {
+		"cpu_ms": 30000
+	},
+	"containers": [
+		{
+			"class_name": "ContainerSidecar",
+			"configuration": {
+				"network": {
+					"mode": "private"
+				}
+			},
+			"image": "./Dockerfile",
+			"instances": 20,
+			"name": "searxng"
+		}
+	],
+	"durable_objects": {
+		"bindings": [{ "name": "CONTAINER_SIDECAR", "class_name": "ContainerSidecar" }]
+	},
+	"migrations": [{ "tag": "d17b574", "new_sqlite_classes": ["ContainerSidecar"] }],
+	"vars": {
+		"ENVIRONMENT": "production",
+		"NODE_ENV": "production"
+	}
 }
