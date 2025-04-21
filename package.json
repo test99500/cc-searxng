@@ -5,7 +5,8 @@
 		"fmt": "prettier --check .",
 		"fmt:fix": "prettier --write .",
 		"lint": "eslint **/*.*ts*",
-		"lint:fix": "npm run lint -- --fix"
+		"lint:fix": "npm run lint -- --fix",
+		"start": "wrangler dev"
 	},
 	"repository": {
 		"type": "git",
@@ -19,6 +20,9 @@
 	},
 	"homepage": "https://github.com/demosjarco/cc-searxng#readme",
 	"prettier": "@demosjarco/prettier-config",
+	"dependencies": {
+		"hono": "^4.7.7"
+	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20250421.0",
 		"@demosjarco/prettier-config": "^1.0.2",
