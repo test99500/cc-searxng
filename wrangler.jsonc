@@ -16,9 +16,9 @@
 		{
 			"class_name": "ContainerSidecar",
 			"configuration": {
-				"network": {
-					"mode": "private"
-				}
+				"network": { "mode": "private" },
+				"vcpu": 2,
+				"memory": "4GB"
 			},
 			"image": "./Dockerfile",
 			"instances": 20,
