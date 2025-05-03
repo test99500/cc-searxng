@@ -81,6 +81,9 @@ export default class extends WorkerEntrypoint<EnvVars> {
 				import('hono/timing'),
 			]).then(([response, { setMetric }]) => {
 				const mutableResponse = new Response(response.body, response);
+				// Remove duplicate headers
+				mutableResponse.headers.delete('Server-Timing');
+				mutableResponse.headers.delete('Server-Timing-CC');
 
 				// Get the build in Server-Timing header from the response
 				const serverTiming = this.serverTiming(response.headers.get('Server-Timing') ?? undefined);
