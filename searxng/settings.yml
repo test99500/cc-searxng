@@ -5,19 +5,6 @@ general:
   debug: false
   # displayed name
   instance_name: 'SearXNG'
-  # For example: https://example.com/privacy
-  privacypolicy_url: false
-  # use true to use your own donation page written in searx/info/en/donate.md
-  # use false to disable the donation link
-  donation_url: false
-  # mailto:contact@example.com
-  contact_url: false
-  # record stats
-  enable_metrics: true
-  # expose stats in open metrics format at /metrics
-  # leave empty to disable (no password set)
-  # open_metrics: <password>
-  open_metrics: ''
 
 brand:
   new_issue_url: https://github.com/demosjarco/cc-searxng/issues/new
