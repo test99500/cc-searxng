@@ -67,9 +67,6 @@ export default class extends WorkerEntrypoint<EnvVars> {
 			),
 		);
 
-		// Performance
-		app.use('*', (c, next) => import('hono/etag').then(({ etag }) => etag()(c, next)));
-
 		// Debug
 		app.use('*', (c, next) => import('hono/timing').then(({ timing }) => timing()(c, next)));
 		app.use('*', (c, next) => Promise.all([import('hono/combine'), import('hono/logger')]).then(([{ except }, { logger }]) => except(() => c.env.NODE_ENV !== 'development', logger())(c, next)));
