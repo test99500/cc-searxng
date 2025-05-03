@@ -20,7 +20,7 @@
 				"memory": "4GB"
 			},
 			"image": "./Dockerfile",
-			"instances": 20,
+			"instances": 9,
 			"name": "searxng"
 		}
 	],
