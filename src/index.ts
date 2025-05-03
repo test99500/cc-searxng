@@ -49,15 +49,6 @@ export default class extends WorkerEntrypoint<EnvVars> {
 	override async fetch(request: Request): Promise<Response> {
 		const app = await import('hono').then(({ Hono }) => new Hono<{ Bindings: EnvVars; Variables: HonoVariables }>());
 
-		// Dev debug injection point
-		app.use('*', async (c, next) => {
-			// eslint-disable-next-line no-empty
-			if (c.env.NODE_ENV === 'development') {
-			}
-
-			await next();
-		});
-
 		// Security
 		app.use('*', (c, next) => import('hono/secure-headers').then(({ secureHeaders }) => secureHeaders()(c, next)));
 		app.use('*', (c, next) => import('hono/csrf').then(({ csrf }) => csrf()(c, next)));
