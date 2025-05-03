@@ -86,7 +86,7 @@ export default class extends WorkerEntrypoint<EnvVars> {
 		app.all('*', (c) =>
 			Promise.all([
 				// Proxy the actual request
-				loadBalance(c.env.CONTAINER_SIDECAR, 20).fetch(c.req.raw),
+				loadBalance(c.env.CONTAINER_SIDECAR, 9).fetch(c.req.raw),
 				import('hono/timing'),
 			]).then(([response, { setMetric }]) => {
 				// Get the build in Server-Timing header from the response
