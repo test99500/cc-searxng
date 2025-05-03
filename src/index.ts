@@ -51,7 +51,6 @@ export default class extends WorkerEntrypoint<EnvVars> {
 
 		// Security
 		app.use('*', (c, next) => import('hono/secure-headers').then(({ secureHeaders }) => secureHeaders()(c, next)));
-		app.use('*', (c, next) => import('hono/csrf').then(({ csrf }) => csrf()(c, next)));
 		app.use('*', (c, next) =>
 			/**
 			 * Measured in kb
