@@ -80,6 +80,8 @@ export default class extends WorkerEntrypoint<EnvVars> {
 				loadBalance(c.env.CONTAINER_SIDECAR, 9).fetch(c.req.raw),
 				import('hono/timing'),
 			]).then(([response, { setMetric }]) => {
+				const mutableResponse = new Response(response.body, response);
+
 				// Get the build in Server-Timing header from the response
 				const serverTiming = this.serverTiming(response.headers.get('Server-Timing') ?? undefined);
 				for (const [key, value] of Object.entries(serverTiming)) {
@@ -96,7 +98,7 @@ export default class extends WorkerEntrypoint<EnvVars> {
 					}
 				}
 
-				return response;
+				return mutableResponse;
 			}),
 		);
 
