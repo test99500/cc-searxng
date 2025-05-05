@@ -1041,7 +1041,7 @@ engines:
   - name: hackernews
     engine: hackernews
     shortcut: hn
-    disabled: true
+    disabled: false
 
   - name: hex
     engine: hex
