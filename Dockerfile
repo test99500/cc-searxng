@@ -17,7 +17,7 @@ RUN --mount=type=cache,target=/root/.cache/pip pip cache purge
 COPY --link searxng/settings.yml /etc/searxng/settings.yml
 COPY --link searxng/uwsgi.ini /etc/searxng/uwsgi.ini
 
-ENV SEARXNG_BASE_URL="https://searxng.demosjarco.dev"
+ENV SEARXNG_BASE_URL="https://search.demosjarco.dev"
 
 # Replace the default secret_key with a securely generated one
 RUN sed -i "s|secret_key: .*|secret_key: \"$(openssl rand -hex 32)\"|" /etc/searxng/settings.yml
