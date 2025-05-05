@@ -1723,7 +1723,7 @@ engines:
     engine: reddit
     shortcut: re
     page_size: 25
-    disabled: true
+    disabled: false
 
   - name: reuters
     engine: reuters
