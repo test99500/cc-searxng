@@ -610,7 +610,6 @@ engines:
     # cf_ai_model_display_name: 'Cloudflare AI'
     # cf_ai_model_assistant: 'prompts_for_assistant_role'
     # cf_ai_model_system: 'prompts_for_system_role'
-    timeout: 30
     disabled: false
 
   # - name: core.ac.uk
