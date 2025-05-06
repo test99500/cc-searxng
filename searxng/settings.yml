@@ -602,7 +602,7 @@ engines:
     # find the model name from https://developers.cloudflare.com/workers-ai/models/#text-generation
     cf_ai_model: '@cf/meta/llama-4-scout-17b-16e-instruct'
     # custom your preferences
-    cf_ai_model_display_name: 'Llama 4 (Workers AI)'
+    cf_ai_model_display_name: 'Llama 4 Scout (Workers AI)'
     # cf_ai_model_assistant: 'prompts_for_assistant_role'
     cf_ai_model_system: 'You are a helpful assistant in a search engine who is honest and direct about any question from the user. Provide concise and helpful information in plain text only, without using markdown, code, or any formatting.'
     disabled: false
