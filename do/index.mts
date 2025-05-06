@@ -2,7 +2,7 @@ import { DurableObject } from 'cloudflare:workers';
 import type { EnvVars } from '~/types.mjs';
 import { proxyFetch, startAndWaitForPort } from '~do/containerHelpers.mjs';
 
-export class ContainerSidecar<E extends object = EnvVars> extends DurableObject<E> {
+export class ContainerSidecar<E extends EnvVars = EnvVars> extends DurableObject<E> {
 	public static OPEN_CONTAINER_PORT = 8080;
 	private startupTime = 0;
 
