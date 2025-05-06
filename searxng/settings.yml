@@ -320,7 +320,6 @@ engines:
     adobe_order: relevance
     adobe_content_types: ['photo', 'illustration', 'zip_vector', 'template', '3d', 'image']
     timeout: 6
-    disabled: true
 
   - name: adobe stock video
     engine: adobe_stock
@@ -330,7 +329,6 @@ engines:
     adobe_order: relevance
     adobe_content_types: ['video']
     timeout: 6
-    disabled: true
 
   - name: adobe stock audio
     engine: adobe_stock
@@ -340,7 +338,6 @@ engines:
     adobe_order: relevance
     adobe_content_types: ['audio']
     timeout: 6
-    disabled: true
 
   - name: alexandria
     engine: json_engine
@@ -401,7 +398,6 @@ engines:
   - name: apple app store
     engine: apple_app_store
     shortcut: aps
-    disabled: true
 
   # Requires Tor
   - name: ahmia
@@ -497,7 +493,6 @@ engines:
   - name: bing
     engine: bing
     shortcut: bi
-    disabled: true
 
   - name: bing images
     engine: bing_images
@@ -693,7 +688,6 @@ engines:
     engine: duckduckgo_definitions
     shortcut: ddd
     weight: 2
-    disabled: true
     tests: *tests_infobox
 
   # cloudflare protected
@@ -780,31 +774,26 @@ engines:
     categories: [images, web]
     ddg_category: images
     shortcut: ddi
-    disabled: true
 
   - name: duckduckgo videos
     engine: duckduckgo_extra
     categories: [videos, web]
     ddg_category: videos
     shortcut: ddv
-    disabled: true
 
   - name: duckduckgo news
     engine: duckduckgo_extra
     categories: [news, web]
     ddg_category: news
     shortcut: ddn
-    disabled: true
 
   - name: duckduckgo weather
     engine: duckduckgo_weather
     shortcut: ddw
-    disabled: true
 
   - name: apple maps
     engine: apple_maps
     shortcut: apm
-    disabled: true
     timeout: 5.0
 
   - name: emojipedia
@@ -998,14 +987,12 @@ engines:
     categories: [files, apps]
     shortcut: gpa
     play_categ: apps
-    disabled: true
 
   - name: google play movies
     engine: google_play
     categories: videos
     shortcut: gpm
     play_categ: movies
-    disabled: true
 
   - name: material icons
     engine: material_icons
@@ -1049,7 +1036,6 @@ engines:
   - name: crates.io
     engine: crates
     shortcut: crates
-    disabled: true
     timeout: 6.0
 
   - name: hoogle
@@ -1077,13 +1063,11 @@ engines:
   - name: huggingface
     engine: huggingface
     shortcut: hf
-    disabled: true
 
   - name: huggingface datasets
     huggingface_endpoint: datasets
     engine: huggingface
     shortcut: hfd
-    disabled: true
 
   - name: huggingface spaces
     huggingface_endpoint: spaces
@@ -1095,12 +1079,10 @@ engines:
     engine: imdb
     shortcut: imdb
     timeout: 6.0
-    disabled: true
 
   - name: imgur
     engine: imgur
     shortcut: img
-    disabled: true
 
   - name: ina
     engine: ina
@@ -1206,7 +1188,6 @@ engines:
       - https://libretranslate.com/translate
     # api_key: abc123
     shortcut: lt
-    disabled: true
 
   - name: lingva
     engine: lingva
@@ -1335,7 +1316,6 @@ engines:
     engine: npm
     shortcut: npm
     timeout: 5.0
-    disabled: true
 
   - name: nyaa
     engine: nyaa
@@ -1382,7 +1362,6 @@ engines:
   - name: ollama
     engine: ollama
     shortcut: ollama
-    disabled: true
 
   - name: openairedatasets
     engine: json_engine
@@ -2046,7 +2025,6 @@ engines:
   - name: yahoo
     engine: yahoo
     shortcut: yh
-    disabled: true
 
   - name: yahoo news
     engine: yahoo_news
