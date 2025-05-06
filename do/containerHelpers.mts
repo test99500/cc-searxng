@@ -1,6 +1,6 @@
 import type { DurableObject } from 'cloudflare:workers';
 
-export async function startAndWaitForPort(container: Container, portToAwait: number, maxTries = 10) {
+export async function startAndWaitForPort<E extends ContainerStartupOptions['env']>(container: Container, portToAwait: number, maxTries = 10, env: E) {
 	const port = container.getTcpPort(portToAwait);
 	// promise to make sure the container does not exit
 	let monitor;
@@ -8,7 +8,7 @@ export async function startAndWaitForPort(container: Container, portToAwait: num
 	for (let i = 0; i < maxTries; i++) {
 		try {
 			if (!container.running) {
-				container.start({ enableInternet: true });
+				container.start({ enableInternet: true, env });
 
 				// force DO to keep track of running state
 				monitor = container.monitor();
