@@ -600,7 +600,7 @@ engines:
     # create your ai gateway by https://developers.cloudflare.com/ai-gateway/get-started/creating-gateway/
     cf_ai_gateway: 'searxng'
     # find the model name from https://developers.cloudflare.com/workers-ai/models/#text-generation
-    cf_ai_model: 'llama-4-scout-17b-16e-instruct'
+    cf_ai_model: '@cf/meta/llama-4-scout-17b-16e-instruct'
     # custom your preferences
     # cf_ai_model_display_name: 'Cloudflare AI'
     # cf_ai_model_assistant: 'prompts_for_assistant_role'
