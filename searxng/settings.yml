@@ -2605,7 +2605,7 @@ engines:
     categories: ['social media', 'it']
     show_avatar: true
     api_username: 'free999'
-    api_key: '$CF_COMMUNITY_KEY'
+    api_key: 'CF_COMMUNITY_KEY'
 
 # Doku engine lets you access to any Doku wiki instance:
 # A public one or a privete/corporate one.
