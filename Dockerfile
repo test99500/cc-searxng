@@ -21,5 +21,3 @@ ENV SEARXNG_BASE_URL="https://search.demosjarco.dev"
 
 # Replace the default secret_key with a securely generated one
 RUN sed -i "s|secret_key: .*|secret_key: \"$(openssl rand -hex 32)\"|" /etc/searxng/settings.yml
-RUN sed -i "s|cf_account_id: .*|cf_account_id: \"$CF_ACCOUNT_ID\"|" /etc/searxng/settings.yml
-RUN sed -i "s|cf_ai_api: .*|cf_ai_api: \"$CF_API_TOKEN\"|" /etc/searxng/settings.yml
