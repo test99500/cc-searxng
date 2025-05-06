@@ -621,7 +621,7 @@ engines:
     cf_ai_model_display_name: 'Gemma 3 (Workers AI)'
     # cf_ai_model_assistant: 'prompts_for_assistant_role'
     cf_ai_model_system: 'You are a helpful assistant in a search engine who is honest and direct about any question from the user. Provide concise and helpful information in plain text only. No formatting, markdown, code or anything else other than plaintext'
-    disabled: false
+    disabled: true
 
   - name: mistral 3
     engine: cloudflareai
