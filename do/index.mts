@@ -13,7 +13,10 @@ export class ContainerSidecar<E extends EnvVars = EnvVars> extends DurableObject
 			// eslint-disable-next-line @typescript-eslint/no-floating-promises
 			ctx.blockConcurrencyWhile(async () => {
 				const startTime = performance.now();
-				await startAndWaitForPort(ctx.container!, ContainerSidecar.OPEN_CONTAINER_PORT);
+				await startAndWaitForPort(ctx.container!, ContainerSidecar.OPEN_CONTAINER_PORT, undefined, {
+					CF_ACCOUNT_ID: env.CF_ACCOUNT_ID,
+					CF_API_TOKEN: env.CF_API_TOKEN,
+				});
 				// Don't count the extra 300ms delay from `startAndWaitForPort`'s `setTimeout`
 				this.startupTime = performance.now() - startTime - 300;
 			});

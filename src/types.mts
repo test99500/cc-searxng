@@ -10,8 +10,9 @@ export interface EnvVars extends Secrets, Bindings, Record<string, any> {
 	NODE_ENV: 'production' | 'development';
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface Secrets {}
+interface Secrets {
+	CF_API_TOKEN: string;
+}
 
 interface Bindings {
 	CONTAINER_SIDECAR: DurableObjectNamespace<ContainerSidecar>;
