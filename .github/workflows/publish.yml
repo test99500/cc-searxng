@@ -47,7 +47,8 @@ jobs:
       - run: npm ci
       - run: echo "wrangler_version=$(npm ls wrangler --depth=0 --json | jq -r '.dependencies.wrangler.version')" >> $GITHUB_OUTPUT
         id: npm_wrangler_version
-      - run: |
+      - name: Set secrets in settings.yml
+        run: |
           sed -i "s|cf_account_id: .*|cf_account_id: \"${{ secrets.CF_ACCOUNT_ID }}\"|" searxng/settings.yml
           sed -i "s|cf_ai_api: .*|cf_ai_api: \"${{ secrets.API_CF_API_TOKEN }}\"|" searxng/settings.yml
       - uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
