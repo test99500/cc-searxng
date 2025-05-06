@@ -16,16 +16,16 @@ export async function startAndWaitForPort(container: Container, portToAwait: num
 
 			await (await port.fetch('http://ping')).text();
 			return;
-		} catch (err: Error) {
+		} catch (err) {
 			console.error('Error connecting to the container on', i, 'try', err);
 
-			if (err.message.includes('listening')) {
+			if (err instanceof Error && err.message.includes('listening')) {
 				await new Promise((res) => setTimeout(res, 300));
 				continue;
 			}
 
 			// no container yet
-			if (err.message.includes('there is no container instance that can be provided')) {
+			if (err instanceof Error && err.message.includes('there is no container instance that can be provided')) {
 				await new Promise((res) => setTimeout(res, 300));
 				continue;
 			}
