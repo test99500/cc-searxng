@@ -602,7 +602,7 @@ engines:
     # find the model name from https://developers.cloudflare.com/workers-ai/models/#text-generation
     cf_ai_model: '@cf/meta/llama-4-scout-17b-16e-instruct'
     # custom your preferences
-    # cf_ai_model_display_name: 'Cloudflare AI'
+    cf_ai_model_display_name: 'Llama 4 (Workers AI)'
     # cf_ai_model_assistant: 'prompts_for_assistant_role'
     # cf_ai_model_system: 'prompts_for_system_role'
     disabled: false
