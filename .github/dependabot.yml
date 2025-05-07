@@ -13,10 +13,7 @@ updates:
   - package-ecosystem: 'docker'
     directory: '/'
     schedule:
-      interval: 'weekly'
-    allow:
-      - dependency-name: 'searxng/searxng'
-    versioning-strategy: 'increase'
+      interval: 'weekly' 
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
