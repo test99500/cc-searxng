@@ -15,8 +15,8 @@ updates:
     schedule:
       interval: 'weekly'
     allow:
-      - dependency-name: "searxng/searxng"
-        versions: ["2025.*"]
+      - dependency-name: 'searxng/searxng'
+        versions: ['2025.*']
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
