@@ -4,10 +4,6 @@
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
 version: 2
-registries:
-  public-docker:
-    type: docker-registry
-    url: https://registry-1.docker.io/ # Public Docker Hub URL
 updates:
   - package-ecosystem: 'devcontainers'
     directory: '/'
