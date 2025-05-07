@@ -14,9 +14,7 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-    ignore:
-      - dependency-name: 'searxng/searxng'
-        versions: ['2025.5.3-8ef5fbca4']
+    versioning-strategy: auto
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
