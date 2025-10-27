@@ -4,7 +4,7 @@
 # https://github.com/searxng/searxng/blob/master/Dockerfile
 # https://github.com/searxng/searxng-docker/blob/master/docker-compose.yaml
 
-FROM --platform=linux/amd64 searxng/searxng:2025.1.29-738906358
+FROM --platform=linux/amd64 searxng/searxng:2025.10.27-d514dea5c
 
 RUN --mount=type=cache,target=/var/cache/apk apk update
 RUN --mount=type=cache,target=/var/cache/apk apk upgrade
